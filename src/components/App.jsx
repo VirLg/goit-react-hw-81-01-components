@@ -1,8 +1,14 @@
 import { Header } from './Header/Header';
-import { TopGames } from './TopGames/TopGames';
-import card from '../images/card.json';
-import user from '../user.json';
+
 import { Profile } from './Profile/Profile';
+
+import user from '../data/user.json';
+import data from '../data/data.json';
+import transactions from '../data/transactions';
+import { BaseTitle } from './Statistics/BaseTitle';
+import { FriendList } from './FriendList/FriendList';
+import { Routes } from 'react-router-dom';
+import Transaction from './Transaction/Transaction';
 
 export const App = () => {
   return (
@@ -16,9 +22,34 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Profile data={user} />
-      <Header />
-      <TopGames img={card} />
+      <>
+        <Header />
+      </>
+
+      <>
+        <Profile
+          username={user.username}
+          tag={user.tag}
+          location={user.location}
+          avatar={user.avatar}
+          stats={user.stats}
+        />
+      </>
+      <>
+        <BaseTitle stats={data} />
+      </>
+      <>
+        <Transaction data={transactions} />
+      </>
     </div>
   );
 };
+
+//  <Header />
+{
+  /* <TopGames img={card} /> */
+}
+
+{
+  /* */
+}
